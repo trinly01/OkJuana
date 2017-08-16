@@ -1,0 +1,17 @@
+{
+  "name": "speak.js",
+  "version": "0.0.2",
+  "main": "./speakGenerator.js",
+  "dependencies": {},
+  "homepage": "https://github.com/blittle/speak.js",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "4d3c0477a0bb5f37c211703e712284a354207071"
+  },
+  "_source": "https://github.com/blittle/speak.js.git",
+  "_target": "0.0.2",
+  "_originalSource": "speak.js",
+  "_direct": true
+}

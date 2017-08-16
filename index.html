@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>OkJuana v0.1</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <script src="bower_components/elizabot/elizabot.js"></script>
+    <script src="bower_components/elizabot/elizadata.js"></script>
+    
+    <script src="bower_components/annyang/dist/artyom.js"></script>
+    
+    <!--<script src="bower_components/speak.js/speakGenerator.js"></script>
+    <script src="bower_components/speak.js/speakWorker.js"></script>-->
+    <script src="bower_components/speak.js/speakClient.js"></script>
+    
+    
+    <script src="bower_components/angular/angular.min.js"></script>
+    
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+
+    <!-- <script src="cordova.js"></script>           phantom library, needed for Cordova api calls, added during build  -->
+    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    
+    <script src="modules/main/app.js"></script>
+    <script src="modules/main/controllers/mainController.js"></script>
+</head>
+
+<body ng-app="app" flex layout="column" layout-fill ng-controller="mainController">
+    <md-toolbar class="md-hue-2 shadow" md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <div class="inset">
+                <ng-md-icon icon="donut_small"></ng-md-icon>
+            </div>
+            OkJuana
+            <span flex></span>
+            <em>v0.1</em>
+        </div>
+    </md-toolbar>
+    <md-content flex layout="column" layout-align="center center">
+        <div class="inset">
+            <ng-md-icon icon="{{volume}}" style="fill: {{volumeColor}};"></ng-md-icon>
+        </div>
+        <md-progress-circular ng-class="{'md-warn md-hue-2': speaking}" style="position: relative; bottom: 48px;" md-mode="indeterminate"></md-progress-circular>
+        <div>
+            <div ng-repeat="n in messages">{{n.message}}</div>
+        </div>
+    </md-content>
+    <div id="audio"></div>
+</body>
+</html>
