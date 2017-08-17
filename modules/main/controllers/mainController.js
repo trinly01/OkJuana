@@ -103,4 +103,33 @@ function mainController($scope, $timeout){
             console.log("Ready to work !");
         });
     },250)
+
+    $scope.msg = '';
+    $scope.send = function (words) {
+        artyom.dontObey();
+        artyom.dontObey();
+
+        $scope.volume = 'volume_up';
+        $scope.volumeColor = '#D32F2F';
+        $scope.speaking = true;
+        var reply = jarvis.transform(words);
+
+        console.log('User:', words);
+        $scope.messages.push({message: 'You: '+ words})
+        artyom.say(reply, {
+            onStart: function() {
+                artyom.dontObey();
+                console.log('Juana:', reply);
+                $scope.messages.push({message: 'Juana: '+ reply})
+                $scope.msg = '';
+            },
+            onEnd:function() {
+                $timeout(reset);
+                reset();
+                artyom.dontObey();
+
+                artyom.obey();
+            }
+        });
+    };
 }
